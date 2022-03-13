@@ -3,7 +3,15 @@
 pragma solidity 0.8.11;
 
 contract Storage {
-    function isActive() public view returns (bool)) {
+
+    // Declaring the state variables. 
+
+    uint totalContractBalance = 0; // keep track of the amount in our contract
+    mapping (address => uint) public balance; //To uodate the balance of each user
+    uint constant public threshold = 0.003 * 10 * 18;
+    uint public deadline = block.timestamp + 1 minutes;
+
+    function isActive() public view returns (bool) {
         
     }
 
