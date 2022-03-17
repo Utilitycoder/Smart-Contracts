@@ -265,6 +265,21 @@ contract Pausable is Ownable {
   }
 }
 
+contract Blacklist is Ownable, BasicToken {
+    // Getters to allow the same blacklist to be used by other contracts (including upgraded Tether)
+    function getBlackListStatus(address _maker) external constant returns (bool) {
+        return isBlackListed[_maker];
+    }
+
+    function getOwner() external constant returns (address) {
+        return owner;
+    }
+
+    mapping (address => bool) public isBlackListed;
+
+    function addBlacklist (address _evilUser)
+}
+
 contract BlackList is Ownable, BasicToken {
 
     /////// Getters to allow the same blacklist to be used also by other contracts (including upgraded Tether) ///////
